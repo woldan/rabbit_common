@@ -1,7 +1,7 @@
 %% This file is a copy of supervisor.erl from the R16B Erlang/OTP
 %% distribution, with the following modifications:
 %%
-%% 1) the module name is supervisor2cp
+%% 1) the module name is rabbit_supervisor
 %%
 %% 2) a find_child/2 utility function has been added
 %%
@@ -59,7 +59,7 @@
 %%
 %% %CopyrightEnd%
 %%
--module(supervisor2cp).
+-module(rabbit_supervisor).
 
 -behaviour(gen_server).
 
