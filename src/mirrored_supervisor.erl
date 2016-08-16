@@ -116,7 +116,7 @@
 %% children we found in Module:init() at this point, since starting
 %% children requires knowing the overall supervisor pid.
 
--define(SUPERVISOR, supervisor2).
+-define(SUPERVISOR, supervisor2cp).
 -define(GEN_SERVER, gen_server2).
 -define(PG2,        pg2_fixed).
 -define(SUP_MODULE, mirrored_supervisor_sups).
@@ -159,10 +159,10 @@
 %%--------------------------------------------------------------------------
 
 -callback init(Args :: term()) ->
-    {ok, {{RestartStrategy :: supervisor2:strategy(),
+    {ok, {{RestartStrategy :: supervisor2cp:strategy(),
            MaxR :: non_neg_integer(),
            MaxT :: non_neg_integer()},
-           [ChildSpec :: supervisor2:child_spec()]}}
+           [ChildSpec :: supervisor2cp:child_spec()]}}
     | ignore.
 
 %%--------------------------------------------------------------------------
@@ -184,7 +184,7 @@
 
 -spec start_link(SupName, GroupName, TxFun, Module, Args) ->
                         startlink_ret() when
-      SupName :: supervisor2:sup_name(),
+      SupName :: supervisor2cp:sup_name(),
       GroupName :: group_name(),
       TxFun :: tx_fun(),
       Module :: module(),
@@ -193,7 +193,7 @@
 -spec start_internal(Group, TxFun, ChildSpecs) -> Result when
       Group :: group_name(),
       TxFun :: tx_fun(),
-      ChildSpecs :: [supervisor2:child_spec()],
+      ChildSpecs :: [supervisor2cp:child_spec()],
       Result :: {'ok', pid()} | {'error', term()}.
 
 -spec create_tables() -> Result when
