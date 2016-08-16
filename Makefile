@@ -12,7 +12,7 @@ ERLC_OPTS = +debug_info \
             +warn_unused_import
 
 COMPILE_FIRST = gen_server2 \
-                supervisor2 \
+                supervisor2cp \
                 mirrored_supervisor
 
 include erlang.mk
