@@ -72,7 +72,6 @@
 -record(exchange_serial, {name, next}).
 
 %% mnesia doesn't like unary records, so we add a dummy 'value' field
--record(route, {binding, value = const}).
 -record(reverse_route, {reverse_binding, value = const}).
 
 -record(binding, {source, key, destination, args = []}).
